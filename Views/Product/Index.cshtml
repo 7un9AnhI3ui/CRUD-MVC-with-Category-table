@@ -1,0 +1,35 @@
+﻿@model IEnumerable<crud.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products Details</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Color</th>
+            <th scope="col">
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">CategoryId</a>
+            </th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    @foreach (var product in Model){
+        <tr>
+            <th scope="row">@product.Id</th>
+            <th scope="row">@product.Name</th>
+            <th scope="row">@product.Color</th>
+            <th scope="row">@product.CategoryId</th>
+            <th scope="row">@product.Quantity</th>
+            <th scope="row">@product.Price</th>
+            <th scope="row"><a asp-action="Edit" asp-route-id="@product.Id">Edit</a></th>
+            <th scope="row"><a asp-action="Delete" asp-route-id="@product.Id">Delete</a></th>
+        </tr>
+     }
+
+</table>

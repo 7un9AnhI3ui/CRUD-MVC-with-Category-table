@@ -1,0 +1,36 @@
+﻿@model crud.Models.Product
+@{
+    ViewData["Title"] = "Create Product";
+}
+<h1> Add Product</h1>
+<form asp-action="Create">
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Color</label>
+        <input asp-for="Color" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+            <option value="">-- Select Category --</option>
+        </select>
+        <!--<input asp-for="Category" type="hidden" asp-items=""-->
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input asp-for="Quantity" type="text" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input asp-for="Price" type="text" class="form-control" />
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Save">
+</form>
